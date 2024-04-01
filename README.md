@@ -1,5 +1,6 @@
 # SCD-Net [AAAI2024]
-The Official implementation for  'SCD-Net: Spatiotemporal Clues Disentanglement Network for Self-supervised Skeleton-based Action Recognition' (AAAI 2024).
+The Official implementation for  'SCD-Net: Spatiotemporal Clues Disentanglement Network for Self-supervised Skeleton-based Action Recognition' (AAAI 2024). [AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/28409)  [arXiv](https://arxiv.org/abs/2309.05834)  
+
 
 
 - [Prerequisite](#Prerequisite)
