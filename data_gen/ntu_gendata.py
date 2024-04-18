@@ -4,6 +4,7 @@ from tqdm import tqdm
 import sys
 from numpy.lib.format import open_memmap
 
+import multiprocessing
 sys.path.extend(['../'])
 from data_gen.preprocess import pre_normalization
 
@@ -180,15 +181,16 @@ if __name__ == '__main__':
     part = ['train', 'val']
     arg = parser.parse_args()
 
+    processes = []
     for b in benchmark:
+        out_path = os.path.join(arg.out_folder, b)
+        if not os.path.exists(out_path):
+            os.makedirs(out_path)
+
         for p in part:
-            out_path = os.path.join(arg.out_folder, b)
-            if not os.path.exists(out_path):
-                os.makedirs(out_path)
-            print(b, p)
-            gendata(
-                arg.data_path,
-                out_path,
-                arg.ignored_sample_path,
-                benchmark=b,
-                part=p)
+            process = multiprocessing.Process(target=gendata, args=(arg.data_path, out_path, arg.ignored_sample_path, b, p))
+            processes.append(process)
+            process.start()
+
+    for process in processes:
+        process.join()
