@@ -46,10 +46,10 @@ The Official implementation for  'SCD-Net: Spatiotemporal Clues Disentanglement 
 - To train on NTU-RGB+D 60 under Cross-Subject evaluation, you can run
 
 
-    python ./pretraining.py --lr 0.01 --batch-size 64 --encoder-t 0.2   --encoder-k 8192 \
+    `python ./pretraining.py --lr 0.01 --batch-size 64 --encoder-t 0.2   --encoder-k 8192 \
                 --checkpoint-path ./checkpoints/pretrain/ \
                 --schedule 351  --epochs 451  --pre-dataset ntu60 \
-                --protocol cross_subject --skeleton-representation joint
+                --protocol cross_subject --skeleton-representation joint`
 
 ## Testing 
 
@@ -57,16 +57,16 @@ The Official implementation for  'SCD-Net: Spatiotemporal Clues Disentanglement 
 - For action recognition on NTU-RGB+D 60 under Cross-Subject evaluation, you can run
 
 
-    python ./action_classification.py --lr 2 --batch-size 1024 \
+    `python ./action_classification.py --lr 2 --batch-size 1024 \
                 --pretrained ./checkpoints/pretrain/checkpoint.pth.tar \
-                --finetune-dataset ntu60 --protocol cross_subject --finetune_skeleton_representation joint
+                --finetune-dataset ntu60 --protocol cross_subject --finetune_skeleton_representation joint`
 
 - For action retrieval on NTU-RGB+D 60 under Cross-Subject evaluation, you can run
 
 
-    python ./action_retrieval.py --knn-neighbours 1 \
+    `python ./action_retrieval.py --knn-neighbours 1 \
                 --pretrained ./checkpoints/pretrain/checkpoint.pth.tar \
-                --finetune-dataset ntu60 --protocol cross_subject --finetune-skeleton-representation joint
+                --finetune-dataset ntu60 --protocol cross_subject --finetune-skeleton-representation joint`
 
 <a name="Log"></a>
 
